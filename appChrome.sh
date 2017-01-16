@@ -7,6 +7,7 @@
 # This could be for you or could not be, but it's mine and for I love it.
 # Works very well along i3 or bspwm
 #
+# I use this in conjuction with i3 config file to have a shortcut
 # REQUIRES xclip
 ##############################################################################################
 #stores clipboard into url
