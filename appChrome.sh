@@ -10,8 +10,25 @@
 # I use this in conjuction with i3 config file to have a shortcut
 # REQUIRES xclip
 ##############################################################################################
+
 #stores clipboard into url
 url=$(xclip -o)
 
-#uses url to open chrome (or whichever browser you prefer) in app mode.
-exec /usr/bin/google-chrome --app="$url2"
+#Checks if it is a youtube video, and embeds it. 
+#If you don't want this feature, feel free you use the following
+#
+# exec /usr/bin/google-chrome --app="$url"
+#
+#only and comment out the if statment below
+
+if [[ $url == *"youtube.com"* ]]; then
+#https://www.youtube.com/ watch?v=XbGs_qK2PQA
+#                      23 24
+
+	youtubeURL=${url:0:23}"/embed/"${url:32:${#url}}
+	exec /usr/bin/google-chrome --app="$youtubeURL"
+else
+	exec /usr/bin/google-chrome --app="$url"
+fi
+
+
